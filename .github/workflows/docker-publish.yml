@@ -1,0 +1,34 @@
+name: Build and Push Backend Docker Image
+
+# Trigger workflow on push to main or pull request
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Log in to Docker Hub using username + access token
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}   # Docker Hub username
+          password: ${{ secrets.DOCKER_PASSWORD }}   # Docker Hub access token
+
+      # Step 3: Build Docker image
+      - name: Build Docker image
+        run: docker build -t paulonzevoulakus/ai-speech-backend:latest .
+
+      # Step 4: Push Docker image to Docker Hub
+      - name: Push Docker image
+        run: docker push paulonzevoulakus/ai-speech-backend:latest
