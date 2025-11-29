@@ -27,8 +27,8 @@ jobs:
 
       # Step 3: Build Docker image
       - name: Build Docker image
-        run: docker build -t paulonzevoulakus/ai-speech-backend:latest .
+        run: docker build -t paulonzervoulakus/ai-speech-backend:latest .
 
       # Step 4: Push Docker image to Docker Hub
       - name: Push Docker image
-        run: docker push paulonzevoulakus/ai-speech-backend:latest
+        run: docker push paulonzervoulakus/ai-speech-backend:latest
