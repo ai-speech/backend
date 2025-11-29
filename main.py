@@ -19,8 +19,8 @@ async def lifespan(_: FastAPI):
     yield
 
 app = FastAPI(
-    title="Help Desk",
-    description="A secure AI integration help desk",
+    title="Event organizer",
+    description="AI Event organizer help desk",
     version="1.0.0",
     lifespan=lifespan,
     docs_url="/docs",       # Swagger UI
