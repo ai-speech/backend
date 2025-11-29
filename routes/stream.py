@@ -71,7 +71,7 @@ async def process_speech(voiced_frames: bytes, sample_rate: int, ws: WebSocket, 
             }
                         
             try:
-                debugging_mode = True
+                debugging_mode = False
                 if(not debugging_mode):
                     # Create new graph task
                     graph_task = asyncio.create_task(graph.ainvoke(init_state, config=config))
